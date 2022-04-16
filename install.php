@@ -81,8 +81,8 @@
 	}
 
 	$sql_create_table = "CREATE TABLE IF NOT EXISTS $db_table_item_categories (
-		id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-		name VARCHAR(100)
+		id_item INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+		id_category INT
 	)";
 	mysqli_query($db_connection, $sql_create_table) OR
 		exit ("error creating table: `$db_table_item_categories`" . mysqli_error($db_connection));
@@ -91,7 +91,7 @@
 	$query_row = mysqli_fetch_array($query);
 	if ($query_row == 0)
 	{
-		$csv_file = fopen($csv_categories, "r");
+		$csv_file = fopen($csv_item_categories, "r");
 		if (($csv_fields = fgetcsv($csv_file)) === false)
 			exit ("fgetcsv returned `false` for `$csv_file`");
 		$csv_fields_str = implode(", ", $csv_fields);
