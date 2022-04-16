@@ -12,6 +12,7 @@
 	$db_table_items = "items";
 	$db_table_categories = "categories";
 	$db_table_item_categories = "item_categories";
+	$db_table_users = "users";
 
 	$db_initial_connection = mysqli_connect($db_host, $db_user, $db_pass);
 	if (mysqli_connect_error())
@@ -82,7 +83,10 @@
 
 	$sql_create_table = "CREATE TABLE IF NOT EXISTS $db_table_item_categories (
 		id_item INT NOT NULL,
-		id_category INT NOT NULL
+		id_category INT NOT NULL,
+		PRIMARY KEY (id_item, id_category),
+		FOREIGN KEY fk_item (id_item) REFERENCES $db_table_items (id),
+		FOREIGN KEY fk_category (id_category) REFERENCES $db_table_categories (id)
 	)";
 	mysqli_query($db_connection, $sql_create_table) OR
 		exit ("error creating table: `$db_table_item_categories`" . mysqli_error($db_connection));
@@ -105,4 +109,21 @@
 	}
 	// $sql_insert_into_test = "INSERT INTO test(id, label) VALUES (?, ?)";
 
+	$sql_create_table = "CREATE TABLE IF NOT EXISTS $db_table_users (
+		id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+		username VARCHAR(51) NOT NULL UNIQUE,
+		password VARCHAR(501)
+	)";
+	mysqli_query($db_connection, $sql_create_table) OR
+		exit ("error creating table: `$db_table_users`" . mysqli_error($db_connection));
+	$sql = "SELECT * FROM $db_name.$db_table_users WHERE username = 'admin'";
+	$query = mysqli_query($db_connection, $sql);
+	$query_row = mysqli_fetch_array($query);
+	if ($query_row == 0)
+	{
+		$admin_password_hash = hash('whirlpool', 'admin');
+		$sql = "INSERT INTO $db_name.$db_table_users (username, password) VALUES ('admin', '$admin_password_hash')";
+		mysqli_query($db_connection, $sql) OR
+			exit ("error inserting admin details into table $db_name.$db_table_users") . mysqli_error($db_connect);
+	}
 ?>
