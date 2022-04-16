@@ -1,7 +1,8 @@
 <?php
 session_start();
-include("install.php");
+include("install.php"); //should it be include_once?
 
+//better with switch
 if(!isset($_GET['page']) || $_GET['page'] == "home")
 {
     $page = "src/pages/home.php";
@@ -44,7 +45,7 @@ else if($_GET['page'] == "delete_user"){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My portfolio of services</title>
+    <title>Our portfolio of services</title>
     <link href="css/about.css" rel="stylesheet">
     <link href="css/navbar.css" rel="stylesheet">
     <link href="css/items.css" rel="stylesheet">
