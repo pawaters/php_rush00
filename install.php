@@ -81,8 +81,8 @@
 	}
 
 	$sql_create_table = "CREATE TABLE IF NOT EXISTS $db_table_item_categories (
-		id_item INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-		id_category INT
+		id_item INT NOT NULL,
+		id_category INT NOT NULL
 	)";
 	mysqli_query($db_connection, $sql_create_table) OR
 		exit ("error creating table: `$db_table_item_categories`" . mysqli_error($db_connection));
