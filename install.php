@@ -38,7 +38,6 @@
 	)";
 	mysqli_query($db_connection, $sql_create_table) OR
 		exit ("error creating table: `$db_table_items`" . mysqli_error($db_connection));
-
 	$sql = "SELECT * FROM $db_name.$db_table_items";
 	$query = mysqli_query($db_connection, $sql);
 	$query_row = mysqli_fetch_array($query);
@@ -63,7 +62,6 @@
 	)";
 	mysqli_query($db_connection, $sql_create_table) OR
 		exit ("error creating table: `$db_table_categories`" . mysqli_error($db_connection));
-
 	$sql = "SELECT * FROM $db_name.$db_table_categories";
 	$query = mysqli_query($db_connection, $sql);
 	$query_row = mysqli_fetch_array($query);
@@ -79,6 +77,30 @@
 			VALUES ('".implode("', '", $tuple)."')";
 			mysqli_query($db_connection, $sql_insert_csv_row) OR
 				exit ("error inserting `$sql_insert_csv_row` into table: `$db_table_categories`" . mysqli_error($db_connection));
+		}
+	}
+
+	$sql_create_table = "CREATE TABLE IF NOT EXISTS $db_table_item_categories (
+		id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+		name VARCHAR(100)
+	)";
+	mysqli_query($db_connection, $sql_create_table) OR
+		exit ("error creating table: `$db_table_item_categories`" . mysqli_error($db_connection));
+	$sql = "SELECT * FROM $db_name.$db_table_item_categories";
+	$query = mysqli_query($db_connection, $sql);
+	$query_row = mysqli_fetch_array($query);
+	if ($query_row == 0)
+	{
+		$csv_file = fopen($csv_categories, "r");
+		if (($csv_fields = fgetcsv($csv_file)) === false)
+			exit ("fgetcsv returned `false` for `$csv_file`");
+		$csv_fields_str = implode(", ", $csv_fields);
+		while (($tuple = fgetcsv($csv_file)) !== false)
+		{
+			$sql_insert_csv_row = "INSERT INTO $db_table_item_categories ($csv_fields_str)
+			VALUES ('".implode("', '", $tuple)."')";
+			mysqli_query($db_connection, $sql_insert_csv_row) OR
+				exit ("error inserting `$sql_insert_csv_row` into table: `$db_table_item_categories`" . mysqli_error($db_connection));
 		}
 	}
 	// $sql_insert_into_test = "INSERT INTO test(id, label) VALUES (?, ?)";
