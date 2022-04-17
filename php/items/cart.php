@@ -50,9 +50,9 @@
 		}
 	}
 
-	if (isset($_SESSION["cart"]) && $_POST["order"] === "Confirm order")
+	if (isset($_SESSION["cart"]) && isset($_POST["order"]) && $_POST["order"] === "Confirm order")
 	{
-		$_SESSION["loggued_on_user"] = "admin";
+		$_SESSION["loggued_on_user"] = "admin"; // remove
 		if ($_SESSION["loggued_on_user"] == "")
 			echo "<h1>Login or create an account to complete order.</h1>";
 		else
