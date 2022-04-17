@@ -5,7 +5,7 @@
 		exit ("item_id is empty");
 	if (empty($_SESSION["cart"]))
 	{
-		$_SESSION["cart"][$_POST["item_id"]] = 1;
+		$_SESSION["cart"][$_POST["item_id"]] = 0;
 	}
 	$found = 0;
 	foreach ($_SESSION["cart"] as $item_id => $quantity)
