@@ -18,7 +18,7 @@
 	if (isset($_POST['del']) && $_POST['del'] === "Delete")
 		remove_from_cart($_POST['item_id']);
 
-	if (isset($_POST["minus_one"]) && $_POST["minus_one"] == "-")
+	if (isset($_POST["minus_one"]) && $_POST["minus_one"] === "-")
 	{
 		$item_ids = array_keys($_SESSION["cart"]);
 		foreach ($item_ids as $item_id)
@@ -34,7 +34,7 @@
 		}
 	}
 
-	if (isset($_POST["plus_one"]) && $_POST["plus_one"] = "+")
+	if (isset($_POST["plus_one"]) && $_POST["plus_one"] === "+")
 	{
 		$item_ids = array_keys($_SESSION["cart"]);
 		foreach ($item_ids as $item_id)
@@ -47,6 +47,21 @@
 			if (empty($_SESSION["cart"]))
 				unset($_SESSION["cart"]);
 			break ;
+		}
+	}
+
+	if (isset($_SESSION["cart"]) && $_POST["order"] === "Confirm order")
+	{
+		if ($_SESSION["loggued_on_user"] == "")
+			echo "<h1>Login or create an account to complete order.</h1>";
+		else
+		{
+			$sql = "SELECT id_user from $db_table_users WHERE login = '"
+				. mysqli_real_escape_string($db_connection, $item_id) . "'";
+			$query = mysqli_query($db_connection, $sql) OR
+				exit ("Error selecting from $db_table_users table") . mysqli_error($db_connect);
+			$result = mysqli_fetch_assoc($query);
+			var_dump($result);
 		}
 	}
 
@@ -64,6 +79,7 @@
 			</tr>
 		<thead>";
 	$item_ids = array_keys($_SESSION["cart"]);
+	$grand_total = 0;
 	foreach ($item_ids as $item_id)
 	{
 		$sql = "SELECT * FROM $db_table_items WHERE id=$item_id";
