@@ -52,7 +52,7 @@
             <ul>
                 <li><a href="admin_home.php?page=users">Users</a></li>
                 <li><a href="admin_home.php?page=orders">Orders</a></li>
-                <li><a href="admin_home.php?page=add">Add items</a></li>
+                <li><a href="admin_home.php?page=add">Add Items</a></li>
                 <li><a href="admin_home.php?page=logout">Log out</a></li>
             </ul>
         </nav>
@@ -61,4 +61,5 @@
             <?php include $page; ?>
         </div>
     </body>
+
 </html>
