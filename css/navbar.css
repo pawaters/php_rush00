@@ -8,6 +8,11 @@ body{
 	font-family: sans-serif;
 }
 
+nav
+{
+    background-color: black;
+}
+
 .navbar a{
 	display: flex;
 	align-items: center;
