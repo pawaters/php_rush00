@@ -14,13 +14,15 @@
 			<table>
 				<tr>
 					<td><img src='".$item["img"]."'></td>
-					<td>".$item["name"]."</td>
 				</tr>
 				<tr>
-					<td>".$item["price"]."</td>
+					<td>Service: ".$item["name"]."</td>
 				</tr>
 				<tr>
-					<td>".$item["description"]."</td>
+					<td>Price: ".$item["price"]." BTC</td>
+				</tr>
+				<tr>
+					<td>Description: ".$item["description"]."</td>
 				</tr>
 				<tr>
 					<td>
