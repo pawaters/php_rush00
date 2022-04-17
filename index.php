@@ -27,9 +27,6 @@ else if($_GET['page'] == "cart"){
 else if($_GET['page'] == "admin"){
     $page = "php/pages/admin_home.php";
 }
-else if($_GET['page'] == "profile"){
-    $page = "php/users/profile.php";
-}
 else if($_GET['page'] == "delete_user"){
     $page = "php/users/delete_user.php";
 }
@@ -62,7 +59,7 @@ else if($_GET['page'] == "delete_user"){
                         echo "<li> <a href=\"index.php?page=login\">Login</a></li>";
                     }
                     else{
-                        echo "<li> <a href=\"index.php?page=profile\">Profile</a></li>";
+                        echo "<li> <a href=\"index.php?page=modify\">Edit Password</a></li>";
                         echo "<li> <a href=\"index.php?page=logout\">Log Out</a></li>";
                     }
                 ?>
