@@ -1,11 +1,7 @@
-<<<<<<< HEAD
-img  {
-=======
 .items table{
     border: 1px;
 }
-.table_img {
->>>>>>> c0d5e656e691787eedd9cc8154e4cbc650cfd045
+img {
     width: 300px;
     height: 200px ;
     text-align: center;
