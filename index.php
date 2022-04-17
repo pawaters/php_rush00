@@ -47,10 +47,10 @@ else if($_GET['page'] == "delete_user"){
             <li><a href="index.php?page=home">HOME</a></li>
             <li><a href="index.php?page=items&category=0">ALL SERVICES</a>
                 <ul class ="dropdown">
-                    <li><a href="index.php?page=items&category=1"></a>WEB</li>
-                    <li><a href="index.php?page=items&category=2"></a>C</li>
-                    <li><a href="index.php?page=items&category=3"></a>DEVOPS</li>
-                    <li><a href="index.php?page=items&category=4"></a>CONSULTING</li>
+                    <li><a href="index.php?page=items&category=1">WEB</a></li>
+                    <li><a href="index.php?page=items&category=2">C</a></li>
+                    <li><a href="index.php?page=items&category=3">DEVOPS</a></li>
+                    <li><a href="index.php?page=items&category=4">CONSULTING</a></li>
                 </ul>
             </li>
                 <?php
