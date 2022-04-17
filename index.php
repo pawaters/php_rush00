@@ -36,13 +36,9 @@ else if($_GET['page'] == "delete_user"){
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our portfolio of services</title>
-    <link href="css/about.css" rel="stylesheet">
+    <link href="css/home.css" rel="stylesheet">
     <link href="css/navbar.css" rel="stylesheet">
     <link href="css/items.css" rel="stylesheet">
     <link href="css/login.css" rel="stylesheet">
@@ -73,5 +69,8 @@ else if($_GET['page'] == "delete_user"){
             <li><a href="index.php?page=cart">BASKET</a></li>
         </ul>
     </nav>
+    <div class="contents-under">
+            <?php include $page; ?>
+    </div>
 </body>
 </html>
