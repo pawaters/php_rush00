@@ -58,12 +58,6 @@ else if($_GET['page'] == "delete_user"){
                     {
                         echo "<li> <a href=\"index.php?page=login\">Login</a></li>";
                     }
-                    else if ($_SESSION['adusername'])
-                    {
-                        echo "<li> <a href=\"php/admin/admin_home.php\">Admin</a></li>";
-                        echo "<li> <a href=\"index.php?page=modify\">Edit Password</a></li>";
-                        echo "<li> <a href=\"index.php?page=logout\">Log Out</a></li>";
-                    }
                     else 
                     {
                         echo "<li> <a href=\"index.php?page=modify\">Edit Password</a></li>";
