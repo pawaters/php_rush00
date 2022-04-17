@@ -5,37 +5,37 @@ include("install.php"); //should it be include_once?
 //better with switch
 if(!isset($_GET['page']) || $_GET['page'] == "home")
 {
-    $page = "src/pages/home.php";
+    $page = "php/pages/home.php";
 }
 else if($_GET['page'] == "items"){
-    $page = "src/pages/items.php";
+    $page = "php/items/items.php";
 }
 else if($_GET['page'] == "contact"){
     $page = "pages/contact.html";
 }
 else if($_GET['page'] == "login"){
-    $page = "src/auth/login.php";
+    $page = "php/auth/login.php";
 }
 else if($_GET['page'] == "create"){
-    $page = "src/admin/create.php";
+    $page = "php/admin/create.php";
 }
 else if($_GET['page'] == "modify" ){
-    $page = "src/admin/modify.php";
+    $page = "php/admin/modify.php";
 }
 else if($_GET['page'] == "logout"){
-    $page = "src/admin/logout.php";
+    $page = "php/admin/logout.php";
 }
 else if($_GET['page'] == "cart"){
-    $page = "src/items/cart.php";
+    $page = "php/items/cart.php";
 }
 else if($_GET['page'] == "admin"){
-    $page = "src/admin/admin.php";
+    $page = "php/admin/admin.php";
 }
 else if($_GET['page'] == "profile"){
-    $page = "src/admin/profile.php";
+    $page = "php/admin/profile.php";
 }
 else if($_GET['page'] == "delete_user"){
-    $page = "src/admin/delete_user.php";
+    $page = "php/admin/delete_user.php";
 }
 ?>
 
@@ -65,7 +65,7 @@ else if($_GET['page'] == "delete_user"){
                 </ul>
             </li>
                 <?php
-                    if ($_SESSION['loggued_on_user'] == "") 
+                    if ($_SESSION['loggued_on_user'] == "")
                     {
                         echo "<li> <a href=\"index.php?page=login\">Login</a></li>";
                     }
@@ -78,7 +78,7 @@ else if($_GET['page'] == "delete_user"){
         </ul>
     </nav>
     <div class="contents-under">
-            <?php include $page; ?>
-    </div> 
+            <?php include (__DIR__ . "/" . $page); ?>
+    </div>
 </body>
 </html>

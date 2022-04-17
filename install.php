@@ -32,6 +32,8 @@
 	$db_connection = mysqli_connect($db_host, $db_user, $db_pass, $db_name) OR
 		exit ("mysqli_connect returned NULL" . mysqli_error($db_connection));
 
+	mysqli_set_charset($db_connection, "utf8mb4");
+
 	$sql_create_table = "CREATE TABLE IF NOT EXISTS $db_table_items (
 		id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 		name VARCHAR(100),
