@@ -134,7 +134,7 @@
 		id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 		id_user INT NOT NULL REFERENCES $db_name.$db_table_users (id),
 		total INT NOT NULL,
-		date DATE
+		date DATETIME DEFAULT CURRENT_TIMESTAMP
 	)";
 	mysqli_query($db_connection, $sql_create_table) OR
 		exit ("error creating table: `$db_name.$db_table_users`" . mysqli_error($db_connection));
