@@ -13,16 +13,16 @@
 		echo "
 			<table>
 				<tr>
+					<td class='category'>Service: ".$item["name"]."</td>
+				</tr>
+				<tr>
 					<td><img src='".$item["img"]."'></td>
 				</tr>
 				<tr>
-					<td>Service: ".$item["name"]."</td>
+					<td class='price'>Price: ".$item["price"]." BTC</td>
 				</tr>
 				<tr>
-					<td>Price: ".$item["price"]." BTC</td>
-				</tr>
-				<tr>
-					<td>Description: ".$item["description"]."</td>
+					<td class='description'>Description: ".$item["description"]."</td>
 				</tr>
 				<tr>
 					<td>
@@ -33,6 +33,7 @@
 					</td>
 				</tr>
 			</table>
+			<hr>
 		";
 	}
 ?>

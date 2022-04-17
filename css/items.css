@@ -1,8 +1,23 @@
 .items table{
     border: 1px;
 }
-.items td img {
-    width: 60%;
-    height: auto;
+img {
+    width: 300px;
+    height: 200px ;
     text-align: center;
+    border-radius: 3%;
+    margin: 2%;
+    margin-left: 10%;
+    margin-bottom: 5%;
+}
+
+.category {
+    font-weight: bold;
+    font-size: xx-large;
+    margin-left: 10%;
+}
+
+hr{
+    margin-top: 40px;
+    margin-bottom: 10px;
 }
