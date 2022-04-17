@@ -1,8 +1,7 @@
 <?php
 session_start();
-include("install.php"); //should it be include_once?
+include("install.php"); 
 
-//better with switch
 if(!isset($_GET['page']) || $_GET['page'] == "home")
 {
     $page = "php/pages/home.php";
@@ -10,43 +9,36 @@ if(!isset($_GET['page']) || $_GET['page'] == "home")
 else if($_GET['page'] == "items"){
     $page = "php/items/items.php";
 }
-else if($_GET['page'] == "contact"){
-    $page = "pages/contact.html";
-}
 else if($_GET['page'] == "login"){
-    $page = "php/auth/login.php";
+    $page = "php/users/login.php";
 }
 else if($_GET['page'] == "create"){
-    $page = "php/admin/create.php";
+    $page = "php/users/create.php";
 }
 else if($_GET['page'] == "modify" ){
-    $page = "php/admin/modify.php";
+    $page = "php/users/modify.php";
 }
 else if($_GET['page'] == "logout"){
-    $page = "php/admin/logout.php";
+    $page = "php/users/logout.php";
 }
 else if($_GET['page'] == "cart"){
     $page = "php/items/cart.php";
 }
 else if($_GET['page'] == "admin"){
-    $page = "php/admin/admin.php";
+    $page = "php/pages/admin_home.php";
 }
 else if($_GET['page'] == "profile"){
-    $page = "php/admin/profile.php";
+    $page = "php/users/profile.php";
 }
 else if($_GET['page'] == "delete_user"){
-    $page = "php/admin/delete_user.php";
+    $page = "php/users/delete_user.php";
 }
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our portfolio of services</title>
-    <link href="css/about.css" rel="stylesheet">
+    <link href="css/home.css" rel="stylesheet">
     <link href="css/navbar.css" rel="stylesheet">
     <link href="css/items.css" rel="stylesheet">
     <link href="css/login.css" rel="stylesheet">
@@ -78,7 +70,7 @@ else if($_GET['page'] == "delete_user"){
         </ul>
     </nav>
     <div class="contents-under">
-            <?php include (__DIR__ . "/" . $page); ?>
+            <?php include $page; ?>
     </div>
 </body>
 </html>

@@ -1,0 +1,33 @@
+body{
+    background-color: white;
+    padding-top: 50px; /* This should be equal to height of your header */
+}
+
+.banner_container{
+    position: relative;
+    width: 100%;
+    text-align: center;
+    color: white;
+	z-index: -1;
+}
+
+.banner_img
+{
+    height: 100%;
+    width: 100%;
+}
+
+/* Centered text on banner*/
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3vw;
+    font-style: italic;
+    color: whitesmoke;
+    text-shadow: 2px 0 0 rgb(17, 1, 1), -2px 0 0 rgb(17, 1, 1), 0 2px 0 rgb(17, 1, 1), 0 -2px 0 rgb(17, 1, 1), 1px 1px rgb(17, 1, 1), -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+}
+.contents-under{
+    padding-top: 5%;
+}
