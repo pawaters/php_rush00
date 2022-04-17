@@ -73,8 +73,5 @@ else if($_GET['page'] == "delete_user"){
             <li><a href="index.php?page=cart">BASKET</a></li>
         </ul>
     </nav>
-    <div class="contents-under">
-            <?php include (__DIR__ . "/" . $page); ?>
-    </div>
 </body>
 </html>
