@@ -4,7 +4,7 @@
 
 <?php
     include("install.php");
-    $sql = "SELECT * FROM users ORDER BY `privilege`ASC";
+    $sql = "SELECT * FROM users ORDER BY privilege ASC";
     $query = mysqli_query($db_connection, $sql) OR
     die ('Error showing `current users` table: ') . mysqli_error($db_connection);
     if ($query > 0){
@@ -13,7 +13,7 @@
             <thread>
                 <tr>
                     <th>id</th>
-                    <th>login</th>
+                    <th>username</th>
                     <th>password</th>
                 </tr>
             </thread>";    
@@ -24,7 +24,7 @@
                 echo "<tbody> 
                     <tr>
                 <td>" . $row['id'] . "</td>
-                <td>" . $row['login'] . "</td>
+                <td>" . $row['username'] . "</td>
                 <td>" . $row['password'] . "</td>
                 <td><form action='' method= 'post'>
                                 <input type='hidden' name='id' value='$id'>
@@ -45,7 +45,7 @@
     if (isset($_POST['delete'])) {
 
         if ($_POST['delete'] == "Delete") {
-            $id = $_POST['id_customer'];
+            $id = $_POST['id'];
 
             $sql = "SELECT * FROM `users` WHERE id = '$id'";
             $query = mysqli_query($db_connection, $sql) OR
