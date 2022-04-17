@@ -45,7 +45,7 @@
     if (isset($_POST['delete'])) {
 
         if ($_POST['delete'] == "Delete") {
-            $id = $_POST['id_customer'];
+            $id = $_POST['id'];
 
             $sql = "SELECT * FROM `users` WHERE id = '$id'";
             $query = mysqli_query($db_connection, $sql) OR
