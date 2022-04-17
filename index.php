@@ -45,7 +45,7 @@ else if($_GET['page'] == "delete_user"){
     <nav class="navbar">
         <ul>
             <li><a href="index.php?page=home">HOME</a></li>
-            <li><a href="index.php?page=items&category=0">ALL SERVICES</a>
+            <li><a href="index.php?page=items&category=0">SHOP OUR DEV SERVICES</a>
                 <ul class ="dropdown">
                     <li><a href="index.php?page=items&category=1">WEB</a></li>
                     <li><a href="index.php?page=items&category=2">C</a></li>
@@ -58,7 +58,7 @@ else if($_GET['page'] == "delete_user"){
                     {
                         echo "<li> <a href=\"index.php?page=login\">Login</a></li>";
                     }
-                    else 
+                    else
                     {
                         echo "<li> <a href=\"index.php?page=modify\">Edit Password</a></li>";
                         echo "<li> <a href=\"index.php?page=logout\">Log Out</a></li>";

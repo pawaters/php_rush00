@@ -10,9 +10,6 @@
 		else if ($_GET['page'] == "users") {
 			$page = "admin_users.php";
 		}
-		else if ($_GET['page'] == "items") {
-			$page = "admin_items.php";
-		}
 		else if ($_GET['page'] == "orders") {
 			$page = "admin_orders.php";
 		}

@@ -80,6 +80,7 @@
 					exit ("error inserting into $db_table_order_details" . mysqli_error($db_connection));
 			}
 			unset($_SESSION["cart"]);
+			exit ("<h1>Thank you for your Bitcoins!!!111!</h1>");
 		}
 	}
 
