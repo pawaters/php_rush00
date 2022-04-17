@@ -10,8 +10,10 @@
 	image: <input type="text" name="image" />
 	<br>
 	<?php
-		$sql = "SHOW COLUMNS FROM $db_table_categories";
-		var_dump(mysqli_query($db_connection, $sql));
+		$sql = "SELECT * FROM $db_table_categories";
+		$query = mysqli_query($db_connection, $sql);
+		$arr = mysqli_fetch_assoc($query);
+		var_dump($arr);
 		echo "<input type='checkbox' name='category' value='' /></label>"
 	?>
 </form>

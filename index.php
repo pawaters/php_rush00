@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("install.php"); 
+include("install.php");
 
 if(!isset($_GET['page']) || $_GET['page'] == "home")
 {
@@ -25,7 +25,7 @@ else if($_GET['page'] == "cart"){
     $page = "php/items/cart.php";
 }
 else if($_GET['page'] == "admin"){
-    $page = "php/pages/admin_home.php";
+    $page = "php/admin/admin_home.php";
 }
 else if($_GET['page'] == "delete_user"){
     $page = "php/users/delete_user.php";

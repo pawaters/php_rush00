@@ -115,7 +115,8 @@
 	$sql_create_table = "CREATE TABLE IF NOT EXISTS $db_table_users (
 		id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 		username VARCHAR(51) NOT NULL UNIQUE,
-		password VARCHAR(501)
+		password VARCHAR(501),
+		privilege VARCHAR(25)
 	)";
 	mysqli_query($db_connection, $sql_create_table) OR
 		exit ("error creating table: `$db_table_users`" . mysqli_error($db_connection));
@@ -125,7 +126,7 @@
 	if ($query_row == 0)
 	{
 		$admin_password_hash = hash('whirlpool', 'admin');
-		$sql = "INSERT INTO $db_name.$db_table_users (username, password) VALUES ('admin', '$admin_password_hash')";
+		$sql = "INSERT INTO $db_name.$db_table_users (username, password, privilege) VALUES ('admin', '$admin_password_hash', 'admin')";
 		mysqli_query($db_connection, $sql) OR
 			exit ("error inserting admin details into table $db_name.$db_table_users") . mysqli_error($db_connect);
 	}

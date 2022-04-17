@@ -1,11 +1,9 @@
 <?php
-    include("install.php");
+    include("../../install.php");
 	session_start();
 
 	if ($_SESSION['adusername'])
 	{
-
-
 		if(!isset($_GET['page'])){
 			$page = "admin_info.php";
 		}
@@ -28,7 +26,7 @@
 			header("Location: ../../index.php");
 		}
 		header('Content-type: text/html');
-		
+
 	}
 	else {
 		header("Location: ../../index.php");
