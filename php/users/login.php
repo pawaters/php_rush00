@@ -14,13 +14,13 @@
 <?php
    if(isset($_POST['submit'])){
        if($_POST['login'] && $_POST['passwd'] && $_POST['submit'] === 'OK'){
-           $login = mysqli_real_escape_string($db_connect, $_POST['login']);
-           $passwd = mysqli_real_escape_string($db_connect, $_POST['passwd']);
+           $login = mysqli_real_escape_string($db_connection, $_POST['login']);
+           $passwd = mysqli_real_escape_string($db_connection, $_POST['passwd']);
            $hashed_passwd = hash('whirlpool', $passwd);
            $submit = $_POST['submit'];
 
-           $sql = "SELECT * FROM `users` WHERE login = '$login'";
-           $query = mysqli_query($db_connect, $sql);
+           $sql = "SELECT * FROM `users` WHERE username = '$login'";
+           $query = mysqli_query($db_connection, $sql);
            $row = mysqli_fetch_array($query);
            if($row){
                if($row['password'] == $hashed_passwd){
