@@ -13,6 +13,8 @@
 	$db_table_categories = "categories";
 	$db_table_item_categories = "item_categories";
 	$db_table_users = "users";
+	$db_table_orders = "orders";
+	$db_table_order_details = "order_details";
 
 	$db_initial_connection = mysqli_connect($db_host, $db_user, $db_pass);
 	if (mysqli_connect_error())
@@ -82,11 +84,10 @@
 	}
 
 	$sql_create_table = "CREATE TABLE IF NOT EXISTS $db_table_item_categories (
-		id_item INT NOT NULL,
-		id_category INT NOT NULL,
-		PRIMARY KEY (id_item, id_category),
-		FOREIGN KEY fk_item (id_item) REFERENCES $db_table_items (id),
-		FOREIGN KEY fk_category (id_category) REFERENCES $db_table_categories (id)
+		id_item INT NOT NULL REFERENCES $db_table_items (id),
+		id_category INT NOT NULL REFERENCES `$db_table_categories` (id),
+		PRIMARY KEY (id_item, id_category)
+
 	)";
 	mysqli_query($db_connection, $sql_create_table) OR
 		exit ("error creating table: `$db_table_item_categories`" . mysqli_error($db_connection));
@@ -126,4 +127,22 @@
 		mysqli_query($db_connection, $sql) OR
 			exit ("error inserting admin details into table $db_name.$db_table_users") . mysqli_error($db_connect);
 	}
+
+	$sql_create_table = "CREATE TABLE IF NOT EXISTS $db_name.$db_table_orders (
+		id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+		id_user INT NOT NULL REFERENCES $db_name.$db_table_users (id),
+		total INT NOT NULL,
+		date DATE
+	)";
+	mysqli_query($db_connection, $sql_create_table) OR
+		exit ("error creating table: `$db_name.$db_table_users`" . mysqli_error($db_connection));
+
+	$sql_create_table = "CREATE TABLE IF NOT EXISTS $db_table_order_details (
+		id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+		id_order INT NOT NULL REFERENCES $db_table_orders (id),
+		id_item INT NOT NULL REFERENCES $db_table_items (id),
+		quantity INT NOT NULL
+	)";
+	mysqli_query($db_connection, $sql_create_table) OR
+		exit ("error creating table: `$db_name.$db_table_order_details`" . mysqli_error($db_connection));
 ?>
