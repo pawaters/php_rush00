@@ -5,7 +5,7 @@
 	if ($_SESSION['adusername'])
 	{
 		if(!isset($_GET['page'])){
-			$page = "admin_info.php";
+			$page = "admin_users.php";
 		}
 		else if ($_GET['page'] == "users") {
 			$page = "admin_users.php";
@@ -36,19 +36,19 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Admin</title>
-        <link href="css/home.css" rel="stylesheet">
-        <link href="css/navbar.css" rel="stylesheet">
-        <link href="css/items.css" rel="stylesheet">
-        <link href="css/login.css" rel="stylesheet">
-        <link href="css/cart.css" rel="stylesheet">
+        <link href="../../css/home.css" rel="stylesheet">
+        <link href="../../css/navbar.css" rel="stylesheet">
+        <link href="../../css/items.css" rel="stylesheet">
+        <link href="../../css/login.css" rel="stylesheet">
+        <link href="../../css/cart.css" rel="stylesheet">
+		<link href="../../css/admin.css" rel="stylesheet">
     </head>
     <body>
         <nav class="navbar">
             <ul>
-                <li><a href="admin_home.php?page=users">Users</a></li>
+				<li><a href="../../index.php">Home</a></li>
+				<li><a href="admin_home.php?page=users">Users</a></li>
                 <li><a href="admin_home.php?page=orders">Orders</a></li>
                 <li><a href="admin_home.php?page=add">Add Items</a></li>
                 <li><a href="admin_home.php?page=logout">Log out</a></li>
