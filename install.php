@@ -141,8 +141,8 @@
 
 	$sql_create_table = "CREATE TABLE IF NOT EXISTS $db_table_order_details (
 		id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-		id_order INT NOT NULL REFERENCES $db_table_orders (id),
-		id_item INT NOT NULL REFERENCES $db_table_items (id),
+		order_id INT NOT NULL REFERENCES $db_table_orders (id),
+		item_id INT NOT NULL REFERENCES $db_table_items (id),
 		quantity INT NOT NULL
 	)";
 	mysqli_query($db_connection, $sql_create_table) OR

@@ -52,16 +52,35 @@
 
 	if (isset($_SESSION["cart"]) && $_POST["order"] === "Confirm order")
 	{
+		$_SESSION["loggued_on_user"] = "admin";
 		if ($_SESSION["loggued_on_user"] == "")
 			echo "<h1>Login or create an account to complete order.</h1>";
 		else
 		{
-			$sql = "SELECT id_user from $db_table_users WHERE login = '"
-				. mysqli_real_escape_string($db_connection, $item_id) . "'";
+			$sql = "SELECT id FROM $db_table_users WHERE username = '"
+				. mysqli_real_escape_string($db_connection, $_SESSION["loggued_on_user"]) . "'";
 			$query = mysqli_query($db_connection, $sql) OR
-				exit ("Error selecting from $db_table_users table") . mysqli_error($db_connect);
-			$result = mysqli_fetch_assoc($query);
-			var_dump($result);
+				exit ("Error selecting from $db_table_users table") . mysqli_error($db_connection);
+			$user_id = mysqli_fetch_assoc($query)["id"];
+
+			$sql = "INSERT INTO $db_table_orders (id_user, total) VALUES ($user_id,"
+				. mysqli_real_escape_string($db_connection, $_POST["total"]) . ")";
+			mysqli_query($db_connection, $sql) OR
+				exit("error inserting into $db_table_orders" . mysqli_error($db_connection));
+
+			$query = mysqli_query($db_connection, "SELECT LAST_INSERT_ID()") OR
+				exit("error querying database" . mysqli_error($db_connection));
+			$order_id = mysqli_fetch_assoc($query)["LAST_INSERT_ID()"];
+
+			$item_ids = array_keys($_SESSION["cart"]);
+			foreach ($item_ids as $item_id)
+			{
+				$sql = "INSERT INTO $db_table_order_details (order_id, item_id, quantity)
+					VALUES ($order_id, $item_id, " . $_SESSION["cart"][$item_id] . ")";
+				mysqli_query($db_connection, $sql) OR
+					exit ("error inserting into $db_table_order_details" . mysqli_error($db_connection));
+			}
+			unset($_SESSION["cart"]);
 		}
 	}
 
