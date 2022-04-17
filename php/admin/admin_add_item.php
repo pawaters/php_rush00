@@ -16,7 +16,7 @@
 		foreach ($arr as $row)
 		{
 			$checked = "";
-			if (in_array($row[0], $_POST["category"]))
+			if (isset($_POST["category"]) && in_array($row[0], $_POST["category"]))
 				$checked = "checked";
 			echo "<input type='checkbox' id='$row[1]' name='category[]' value='$row[0]' $checked /><label for='$row[1]'>$row[1]</label>";
 		}
