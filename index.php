@@ -1,8 +1,7 @@
 <?php
 session_start();
-include("install.php"); //should it be include_once?
+include("install.php"); 
 
-//better with switch
 if(!isset($_GET['page']) || $_GET['page'] == "home")
 {
     $page = "php/pages/home.php";
