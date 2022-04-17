@@ -87,13 +87,13 @@
 		exit ("<h1>You haven't got any cartified products! Keep feeding the cookies, please!</h1>");
 	echo "
 	<br>
-	<table>
+	<table style='width:100%'>
 		<thead>
 			<tr>
-				<th>PRODUCT</th>
-				<th>UNIT PRICE</th>
-				<th>QUANTITY</th>
-				<th>TOTAL</th>
+				<th style='width:10%>PRODUCT</th>
+				<th style='width:10%>UNIT PRICE</th>
+				<th style='width:10%>QUANTITY</th>
+				<th style='width:10%>TOTAL</th>
 			</tr>
 		<thead>";
 	$item_ids = array_keys($_SESSION["cart"]);

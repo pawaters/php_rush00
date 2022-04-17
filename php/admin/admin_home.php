@@ -2,7 +2,7 @@
     include("../../install.php");
 	session_start();
 
-	if ($_SESSION['adusername'])
+	if ($_SESSION['adusername'] == "admin")
 	{
 		if(!isset($_GET['page'])){
 			$page = "admin_users.php";

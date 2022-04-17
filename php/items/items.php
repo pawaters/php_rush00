@@ -13,10 +13,10 @@
 		echo "
 			<table>
 				<tr>
-					<td class='category'>Service: ".$item["name"]."</td>
+					<td class='servicetitle'>Service: ".$item["name"]."</td>
 				</tr>
 				<tr>
-					<td><img src='".$item["img"]."'></td>
+					<td class='table_img'><img src='".$item["img"]."'></td>
 				</tr>
 				<tr>
 					<td class='price'>Price: ".$item["price"]." BTC</td>
