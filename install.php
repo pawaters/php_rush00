@@ -55,7 +55,7 @@
 		while (($tuple = fgetcsv($csv_file)) !== false)
 		{
 			$sql_insert_csv_row = "INSERT INTO $db_table_items ($csv_fields_str)
-			VALUES ('".implode("', '", $tuple)."')";
+				VALUES ('".implode("', '", $tuple)."')";
 			mysqli_query($db_connection, $sql_insert_csv_row) OR
 				exit ("error inserting `$sql_insert_csv_row` into table: `$db_table_items`" . mysqli_error($db_connection));
 		}
