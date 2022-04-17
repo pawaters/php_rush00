@@ -10,32 +10,29 @@ if(!isset($_GET['page']) || $_GET['page'] == "home")
 else if($_GET['page'] == "items"){
     $page = "php/items/items.php";
 }
-else if($_GET['page'] == "contact"){
-    $page = "pages/contact.html";
-}
 else if($_GET['page'] == "login"){
-    $page = "php/auth/login.php";
+    $page = "php/users/login.php";
 }
 else if($_GET['page'] == "create"){
-    $page = "php/admin/create.php";
+    $page = "php/users/create.php";
 }
 else if($_GET['page'] == "modify" ){
-    $page = "php/admin/modify.php";
+    $page = "php/users/modify.php";
 }
 else if($_GET['page'] == "logout"){
-    $page = "php/admin/logout.php";
+    $page = "php/users/logout.php";
 }
 else if($_GET['page'] == "cart"){
     $page = "php/items/cart.php";
 }
 else if($_GET['page'] == "admin"){
-    $page = "php/admin/admin.php";
+    $page = "php/pages/admin_home.php";
 }
 else if($_GET['page'] == "profile"){
-    $page = "php/admin/profile.php";
+    $page = "php/users/profile.php";
 }
 else if($_GET['page'] == "delete_user"){
-    $page = "php/admin/delete_user.php";
+    $page = "php/users/delete_user.php";
 }
 ?>
 
