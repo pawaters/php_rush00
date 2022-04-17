@@ -3,7 +3,7 @@
 </div>
 
 <?php
-    include("../../install.php");
+    include("install.php");
     $sql = "SELECT * FROM users ORDER BY `type`ASC";
     $query = mysqli_query($db_connection, $sql) OR
     die ('Error showing `current users` table: ') . mysqli_error($db_connection);
@@ -15,12 +15,6 @@
                     <th>id_customer</th>
                     <th>login</th>
                     <th>password</th>
-                    <th>type</th>
-                    <th>first name</th>
-                    <th>last name</th>
-                    <th>email</th>
-                    <th>phone</th>
-                    <th>address</th>
                 </tr>
             </thread>";    
         while($row = mysqli_fetch_assoc($query)){
@@ -32,12 +26,6 @@
                 <td>" . $row['id_customer'] . "</td>
                 <td>" . $row['login'] . "</td>
                 <td>" . $row['password'] . "</td>
-                <td>" . $row['type'] . "</td>
-                <td>" . $row['first_name'] . "</td>
-                <td>" . $row['last_name'] . "</td>
-                <td>" . $row['email'] . "</td>
-                <td>" . $row['phone'] . "</td>
-                <td>" . $row['address'] . "</td>
                 <td><form action='' method= 'post'>
                                 <input type='hidden' name='id_customer' value='$id'>
                                 <input type='submit' name='delete' value='Delete'>
