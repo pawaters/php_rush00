@@ -5,8 +5,8 @@
 <?php
     include("../../install.php");
     $sql = "SELECT * FROM users ORDER BY `type`ASC";
-    $query = mysqli_query($db_connect, $sql) OR
-    die ('Error showing `current users` table: ') . mysqli_error($db_connect);
+    $query = mysqli_query($db_connection, $sql) OR
+    die ('Error showing `current users` table: ') . mysqli_error($db_connection);
     if ($query > 0){
         echo "<br> 
             <table class=\"adminTable\">
@@ -60,14 +60,14 @@
             $id = $_POST['id_customer'];
 
             $sql = "SELECT * FROM `users` WHERE id_customer = '$id'";
-            $query = mysqli_query($db_connect, $sql) OR
-            die ('Error 1 removing user from `users` table: ') . mysqli_error($db_connect);
+            $query = mysqli_query($db_connection, $sql) OR
+            die ('Error 1 removing user from `users` table: ') . mysqli_error($db_connection);
 
 			if ($query) {
 				if ($id != 1){
 					$sql = "DELETE FROM `users` WHERE id_customer = '$id'";
-					$query = mysqli_query($db_connect, $sql) OR
-					die ('Error 2 removing user from `users` table: ') . mysqli_error($db_connect);
+					$query = mysqli_query($db_connection, $sql) OR
+					die ('Error 2 removing user from `users` table: ') . mysqli_error($db_connection);
 					$_SESSION['loggued_on_user'] = "";
 					echo "<meta http-equiv='refresh' content='0'>";
 				}
@@ -82,13 +82,13 @@
         if ($_POST['make_admin'] == "Make admin") {
             $id = $_POST['id_customer'];
             $sql = "SELECT * FROM `users` WHERE id_customer = '$id'";
-            $query = mysqli_query($db_connect, $sql) OR
-            die ('Error 1 changing user rights from `users` table: ') . mysqli_error($db_connect);
+            $query = mysqli_query($db_connection, $sql) OR
+            die ('Error 1 changing user rights from `users` table: ') . mysqli_error($db_connection);
 
             if ($query) {
                 $sql = "UPDATE `users` SET type = 'admin' WHERE id_customer = '$id'";
-                $query = mysqli_query($db_connect, $sql) OR
-                die ('Error 2 changing user rights from `users` table: ') . mysqli_error($db_connect);
+                $query = mysqli_query($db_connection, $sql) OR
+                die ('Error 2 changing user rights from `users` table: ') . mysqli_error($db_connection);
                 echo "<meta http-equiv='refresh' content='0'>";
             }
         }
@@ -98,14 +98,14 @@
         if ($_POST['make_user'] == "Make user") {
             $id = $_POST['id_customer'];
             $sql = "SELECT * FROM `users` WHERE id_customer = '$id'";
-            $query = mysqli_query($db_connect, $sql) OR
-            die ('Error 1 changing user rights from `users` table: ') . mysqli_error($db_connect);
+            $query = mysqli_query($db_connection, $sql) OR
+            die ('Error 1 changing user rights from `users` table: ') . mysqli_error($db_connection);
 
             if ($query) {
 				if ($id != 1){
 					$sql = "UPDATE `users` SET type = 'user' WHERE id_customer = '$id'";
-					$query = mysqli_query($db_connect, $sql) OR
-					die ('Error 2 changing user rights from `users` table: ') . mysqli_error($db_connect);
+					$query = mysqli_query($db_connection, $sql) OR
+					die ('Error 2 changing user rights from `users` table: ') . mysqli_error($db_connection);
 					echo "<meta http-equiv='refresh' content='0'>";
 				}
 				else {
